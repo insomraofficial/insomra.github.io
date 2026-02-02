@@ -63,6 +63,118 @@
         </div>
       </div>
     </section>
+    <style>
+        /* ===== WHATSAPP ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366; /* warna asli WhatsApp */
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+        }
+
+        /* ===== INSTAGRAM ===== */
+        .instagram-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 9999;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg,
+                #f58529,
+                #feda77,
+                #dd2a7b,
+                #8134af,
+                #515bd4
+            ); /* warna asli Instagram */
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+        }
+
+        .instagram-float img {
+            width: 30px;
+            height: 30px;
+            filter: brightness(0) invert(1); /* logo putih */
+        }
+
+        .instagram-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+        }
+
+        /* 📱 RESPONSIF MOBILE */
+        @media (max-width: 768px) {
+            .whatsapp-float,
+            .instagram-float {
+                width: 50px;
+                height: 50px;
+                bottom: 15px;
+            }
+
+            .whatsapp-float {
+                right: 15px;
+            }
+
+            .instagram-float {
+                left: 15px;
+            }
+
+            .whatsapp-float img {
+                width: 28px;
+                height: 28px;
+            }
+
+            .instagram-float img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Instagram (Kiri Bawah) -->
+    <a href="https://www.instagram.com/insomra.official/"
+       class="instagram-float"
+       target="_blank"
+       aria-label="Instagram">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+    </a>
+
+    <!-- WhatsApp (Kanan Bawah) -->
+    <a href="https://wa.me/6282397738360"
+       class="whatsapp-float"
+       target="_blank"
+       aria-label="Chat WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+</body>
     <footer class="footer">
       <div class="official-partnership">
         <p>Official Partnership</p>
@@ -71,4 +183,5 @@
     </footer>
   </body>
 </html>
+
 
