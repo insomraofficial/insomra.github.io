@@ -1,36 +1,53 @@
+
 <!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="image/logohitam.png" />
+    <link rel="icon" type="image/png" href="image/logo.png" />
     <title>Insomra Official</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="header">
-      <div class="container">
-        <a href="index.html">
-          <img src="image/logohitam.png" alt="insomra" class="logo" />
-        </a>
-        <nav class="nav">
-          <a href="index.html">Home</a>
-          <a href="products.html">Product</a>
-          <a href="tentang.html">About</a>
-          <a href="size-chart.html">Size Chart</a>
-          <a href="kontak.html">Contact</a>
-        </nav>
-      </div>
-    </header>
+  <div class="container header-flex">
+
+    <!-- HAMBURGER -->
+    <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+
+    <!-- LOGO -->
+    <a href="index.html" class="logo-link">
+      <img src="image/Layer 1.png" alt="insomra" class="logo" />
+    </a>
+
+    <!-- NAV MENU -->
+    <nav class="nav" id="navMenu">
+      <a href="index.html">Home</a>
+      <a href="products.html">Product</a>
+      <a href="tentang.html">About</a>
+      <!-- <a href="size-chart.php">Size Chart</a> -->
+      <a href="kontak.html">Contact</a>
+
+      
+    </nav>
+
+  </div>
+</header>
+
 
     <section class="hero">
-      <img src="image/qq.png" alt="Banner" class="hero-img" />
+      <img src="image/eee.png" class="hero-img" alt="Banner">
       <div class="hero-text">
         <h1>Insomra Official</h1>
         <p>Exclusive designs inspired by youth culture.</p>
-        <a href="https://wa.me/6282397738360" class="btn">Shop Now</a>
       </div>
     </section>
+
     <style>
         /* ===== WHATSAPP ===== */
         .whatsapp-float {
@@ -143,14 +160,28 @@
     </a>
 
 </body>
+
+
     <footer class="footer">
-      <div class="official-partnership">
-        <p>Official Partnership</p>
-        <img src="image/part.png" alt="Official Partner" />
-      </div>
-    </footer>
+  <div class="official-partnership">
+    <p>Official Partnership</p>
+    <div class="partners">
+      <img src="image/part.png" alt="Official Partner" />
+      <img src="image/blck.png" alt="Official Partner" />
+      <!-- Tambahkan partner lain jika ada -->
+    </div>
+  </div>
+</footer>
+    <script>
+function toggleMenu() {
+  const nav = document.getElementById("navMenu");
+  const burger = document.getElementById("hamburger");
+
+  nav.classList.toggle("active");
+  burger.classList.toggle("active");
+}
+</script>
+
+
   </body>
 </html>
-
-
-
