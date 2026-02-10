@@ -3,67 +3,146 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="image/logohitam.png" />
+    <link rel="icon" type="image/png" href="image/logo.png" />
     <title>Insomra Official</title>
     <link rel="stylesheet" href="style.css" />
+
+    <style>
+      .products {
+        text-align: center;
+        padding: 50px 0;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 25px;
+      }
+
+      .product-card {
+        position: relative;
+        background: #fff;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      .product-card img {
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      .product-name a {
+        color: #000;
+        text-decoration: none;
+      }
+
+      .product-name a:hover {
+        text-decoration: underline;
+      }
+
+      /* STATUS */
+      .status-label {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 5px 10px;
+        font-size: 12px;
+        font-weight: 600;
+        color: #fff;
+        border-radius: 5px;
+        text-transform: uppercase;
+      }
+
+      .status-new {
+        background: #28a745;
+      }
+      .status-hot {
+        background: #ff6b6b;
+      }
+      .status-sold {
+        background: #6c757d;
+      }
+
+      .stock {
+        font-size: 14px;
+        color: #555;
+      }
+    </style>
   </head>
+
   <body>
+    <!-- ===== HEADER ===== -->
     <header class="header">
-      <div class="container">
-        <a href="index.html">
-          <img src="image/logohitam.png" alt="insomra" class="logo" />
+      <div class="container header-flex">
+        <!-- HAMBURGER -->
+        <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <!-- LOGO -->
+        <a href="index.html" class="logo-link">
+          <img src="image/Layer 1.png" alt="insomra" class="logo" />
         </a>
-        <nav class="nav">
+
+        <!-- NAV MENU -->
+        <nav class="nav" id="navMenu">
           <a href="index.html">Home</a>
           <a href="products.html">Product</a>
           <a href="tentang.html">About</a>
-          <a href="size-chart.html">Size Chart</a>
+          <!-- <a href="size-chart.php">Size Chart</a> -->
           <a href="kontak.html">Contact</a>
         </nav>
       </div>
     </header>
-    <section class="products container">
-      <h2>Products</h2>
 
-      <div class="product-grid">
-        <div class="product-card">
-          <img src="image/BCK.png" alt="Product 1" />
-          <h3>Insomra x Freiberuflich</h3>
-          <p>Rp 120.000</p>
-        </div>
+    <!-- ===== PRODUCTS ===== -->
+    <section class="products">
+      <div class="container">
+        <h1>Products</h1>
 
-        <div class="product-card">
-          <img src="image/FRNT.png" alt="Product 2" />
-          <h3>Insomra x Freiberuflich</h3>
-          <p>Rp 120.000</p>
-        </div>
+        <div class="product-grid">
+          <div class="product-card">
+            <img src="image/BCK.png" alt="Product" />
+            <h3>Insomra x Freiberuflich</h3>
+            <p>Rp 120.000</p>
+          </div>
 
-        <div class="product-card">
-          <img src="image/backmockup.png" alt="Product 3" />
-          <h3>Insomra Tipografia</h3>
-          <p>Rp 120.000</p>
-        </div>
+          <div class="product-card">
+            <img src="image/FRNT.png" alt="Product" />
+            <h3>Insomra x Freiberuflich</h3>
+            <p>Rp 120.000</p>
+          </div>
 
-        <div class="product-card">
-          <img src="image/front mockup.png" alt="Product 4" />
-          <h3>Insomra Tipografia</h3>
-          <p>Rp 120.000</p>
-        </div>
+          <div class="product-card">
+            <img src="image/backmockup.png" alt="Product" />
+            <h3>Insomra Tipografia</h3>
+            <p>Rp 125.000</p>
+          </div>
 
-        <div class="product-card">
-          <img src="image/mockup.png" alt="Product 5" />
-          <h3>Foramen</h3>
-          <p>Rp 120.000</p>
-        </div>
+          <div class="product-card">
+            <img src="image/front mockup.png" alt="Product" />
+            <h3>Insomra Tipografia</h3>
+            <p>Rp 125.000</p>
+          </div>
 
-        <div class="product-card">
-          <img src="image/Untitled-1.png" alt="Product 6" />
-          <h3>Pictur</h3>
-          <p>Rp 120.000</p>
+          <div class="product-card">
+            <img src="image/mockup.png" alt="Product" />
+            <h3>Foramen</h3>
+            <p>Rp 120.000</p>
+          </div>
+
+          <div class="product-card">
+            <img src="image/Untitled-1.png" alt="Product" />
+            <h3>Pictur</h3>
+            <p>Rp 120.000</p>
+          </div>
         </div>
       </div>
     </section>
-    <style>
+<style>
         /* ===== WHATSAPP ===== */
         .whatsapp-float {
             position: fixed;
@@ -175,14 +254,22 @@
     </a>
 
 </body>
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
       <div class="official-partnership">
         <p>Official Partnership</p>
-        <img src="image/part.png" alt="Official Partner" />
+        <div class="partners">
+          <img src="image/part.png" alt="Official Partner" />
+          <img src="image/blck.png" alt="Official Partner" />
+          <!-- Tambahkan partner lain jika ada -->
+        </div>
       </div>
     </footer>
+
+    <script>
+      function toggleMenu() {
+        document.getElementById("navMenu").classList.toggle("active");
+      }
+    </script>
   </body>
 </html>
-
-
-
