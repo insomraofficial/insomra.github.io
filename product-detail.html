@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Produk</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .product-detail {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      .product-image,
+      .product-info {
+        width: 50%;
+        padding: 40px;
+      }
+
+      .product-image img {
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      .product-info h1 {
+        margin-top: 0;
+      }
+
+      .size-options button {
+        padding: 10px 20px;
+        margin: 5px;
+        border: 1px solid #000;
+        background: #fff;
+        cursor: pointer;
+      }
+
+      .size-options button.active {
+        background: #000;
+        color: #fff;
+      }
+
+      .order-btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 25px;
+        background: #25d366;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 6px;
+      }
+
+      @media (max-width: 768px) {
+        .product-detail {
+          flex-direction: column;
+        }
+
+        .product-image,
+        .product-info {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="product-detail">
+      <div class="product-image">
+        <img id="productImage" src="" alt="Product" />
+      </div>
+
+      <div class="product-info">
+        <h1 id="productName"></h1>
+        <h3 id="productPrice"></h3>
+
+        <p>
+          Kaos premium cotton 24s. Nyaman dipakai sehari-hari. Limited stock.
+        </p>
+
+        <h4>Pilih Ukuran:</h4>
+        <div class="size-options">
+          <button onclick="selectSize(this)">S</button>
+          <button onclick="selectSize(this)">M</button>
+          <button onclick="selectSize(this)">L</button>
+          <button onclick="selectSize(this)">XL</button>
+        </div>
+
+        <a id="orderBtn" class="order-btn" target="_blank">
+          Pesan via WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+
+      const name = params.get("name");
+      const price = params.get("price");
+      const image = params.get("image");
+
+      document.getElementById("productName").innerText = name;
+      document.getElementById("productPrice").innerText =
+        "Rp " + Number(price).toLocaleString();
+      document.getElementById("productImage").src = image;
+
+      let selectedSize = "";
+
+      function selectSize(button) {
+        document.querySelectorAll(".size-options button").forEach((btn) => {
+          btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+        selectedSize = button.innerText;
+      }
+
+      document
+        .getElementById("orderBtn")
+        .addEventListener("click", function (e) {
+          if (selectedSize === "") {
+            alert("Pilih ukuran terlebih dahulu");
+            e.preventDefault();
+            return;
+          }
+
+          const message = `Halo Insomra, saya ingin pesan:\n\nProduk: ${name}\nHarga: Rp ${price}\nUkuran: ${selectedSize}`;
+          const phone = "6282397738360";
+
+          this.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        });
+    </script>
+    <section id="size-chart" class="container">
+      <style>
+        #size-chart {
+          padding: 60px 20px;
+          background: #f9f9f9;
+          font-family: Arial, sans-serif;
+          text-align: center;
+        }
+
+        #size-chart h2 {
+          font-size: 28px;
+          margin-bottom: 10px;
+          letter-spacing: 1px;
+        }
+
+        #size-chart p {
+          color: #555;
+          max-width: 600px;
+          margin: 0 auto 30px;
+          line-height: 1.6;
+        }
+
+        #size-chart table {
+          width: 100%;
+          max-width: 600px;
+          margin: 0 auto 20px;
+          border-collapse: collapse;
+          background: #fff;
+          border-radius: 8px;
+          overflow: hidden;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        #size-chart th {
+          background: #111;
+          color: #fff;
+          padding: 15px;
+          font-size: 14px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+        #size-chart td {
+          padding: 14px;
+          border-bottom: 1px solid #eee;
+          font-size: 14px;
+          color: #333;
+        }
+
+        #size-chart tr:last-child td {
+          border-bottom: none;
+        }
+
+        #size-chart tr:hover {
+          background: #f2f2f2;
+          transition: 0.3s;
+        }
+
+        #size-chart em {
+          font-size: 13px;
+          color: #777;
+        }
+
+        /* Responsive */
+        /* ========================= */
+        /* FIX MOBILE CENTER & NO OVERFLOW */
+        /* ========================= */
+
+        * {
+          box-sizing: border-box;
+        }
+
+        html,
+        body {
+          overflow-x: hidden;
+        }
+
+        @media (max-width: 768px) {
+          body {
+            margin: 0;
+            padding: 0;
+          }
+
+          .product-detail {
+            flex-direction: column;
+            width: 100%;
+            max-width: 100%;
+          }
+
+          .product-image,
+          .product-info {
+            width: 100%;
+            max-width: 100%;
+            padding: 20px;
+            margin: 0 auto;
+          }
+
+          .product-image {
+            padding: 0;
+          }
+
+          .product-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+          }
+
+          .product-info {
+            text-align: center;
+          }
+
+          .product-info h1,
+          .product-info h3,
+          .product-info p {
+            margin-left: auto;
+            margin-right: auto;
+          }
+
+          .size-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+          }
+
+          .size-options button {
+            flex: 0 0 45%;
+            max-width: 45%;
+          }
+
+          /* Size Chart Fix */
+          #size-chart {
+            padding: 40px 20px;
+            width: 100%;
+            max-width: 100%;
+          }
+
+          #size-chart table {
+            width: 100%;
+            max-width: 100%;
+            display: block;
+            overflow-x: auto;
+          }
+
+          #size-chart th,
+          #size-chart td {
+            white-space: nowrap;
+          }
+
+          /* Sticky Button Safe Area */
+          .sticky-order {
+            left: 0;
+            right: 0;
+            width: 100%;
+          }
+
+          body {
+            padding-bottom: 80px;
+          }
+        }
+      </style>
+
+      <h2>Size Chart</h2>
+      <p>
+        Pilih ukuran yang tepat untuk kenyamanan maksimal. Ukuran dalam cm.
+        Untuk produk lain, hubungi kami.
+      </p>
+
+      <table>
+        <tr>
+          <th>Ukuran</th>
+          <th>Panjang (cm)</th>
+          <th>Lebar (cm)</th>
+        </tr>
+        <tr>
+          <td>S</td>
+          <td>69</td>
+          <td>52</td>
+        </tr>
+        <tr>
+          <td>M</td>
+          <td>71</td>
+          <td>55</td>
+        </tr>
+        <tr>
+          <td>L</td>
+          <td>73</td>
+          <td>57</td>
+        </tr>
+        <tr>
+          <td>XL</td>
+          <td>75</td>
+          <td>60</td>
+        </tr>
+      </table>
+
+      <p>
+        <em>
+          Catatan: Ukuran mungkin sedikit berbeda tergantung bahan. Toleransi
+          ukuran ±2cm. Jika ragu, konsultasikan dengan kami.
+        </em>
+      </p>
+    </section>
+  </body>
+</html>
